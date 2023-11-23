@@ -21,7 +21,9 @@ function List({ listItems, setListItems }: IListProps) {
             })}
         </ul>
     ) : (
-        <p>List is empty, yet</p>
+        <p className="text-primary text-[20px] font-calibri">
+            List is empty, yet ...
+        </p>
     );
 }
 
