@@ -19,11 +19,13 @@ function ListItem({ data, setListItems }: IListItemProps) {
 
     return (
         <div className="w-[385px] border-b-2 border-gold flex flex-row justify-between pl-[21px] pb-[6px]">
-            <div className="flex flex-row">
-                <div className="bg-gold w-[30px] mr-[15px] text-center border border-transparent rounded-[3px]">
+            <div className="flex flex-row items-center">
+                <div className="bg-gold w-[30px] h-[30px] flex justify-center items-center mr-[15px] text-center border border-transparent rounded-[3px] font-semibold ">
                     {data.priority}
                 </div>
-                <div>{data.name}</div>
+                <div className="text-primary text-[20px] capitalize font-calibri">
+                    {data.name}
+                </div>
             </div>
             <svg
                 xmlns="http://www.w3.org/2000/svg"

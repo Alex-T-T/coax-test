@@ -15,7 +15,7 @@ function Card() {
     }, []);
 
     return (
-        <div className="border border-transparent rounded-[30px] bg-item-card w-[438px] py-[19px] flex flex-col justify-center items-center shadow-card-shadow backdrop-blur-[7.5px]">
+        <div className="border border-transparent rounded-[30px]  bg-item-card bg-all bg-no-repeat w-[438px] pt-[19px] pb-[160px] flex flex-col justify-center items-center shadow-card-shadow backdrop-blur-[7.5px]">
             <Title text="shoping list" className="mb-[36px]" />
             <Form setListItems={setListItems} />
             <List listItems={listItems} setListItems={setListItems} />

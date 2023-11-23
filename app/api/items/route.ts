@@ -9,7 +9,6 @@ export const GET = async (req: NextRequest) => {
     await database();
 
     const res = await items.find({});
-    console.log('res: ', res);
 
     if (res.length) {
         return NextResponse.json(res);
@@ -20,7 +19,6 @@ export const GET = async (req: NextRequest) => {
 export const POST = async (req: NextRequest) => {
     await database();
     const data: IItemDB = await req.json();
-    console.log('data: ', data);
 
     if (!data.name) {
         return NextResponse.json(
