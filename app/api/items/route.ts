@@ -41,11 +41,11 @@ export const POST = async (req: NextRequest) => {
     if (isExistingData) {
         return NextResponse.json(
             {
-                message: `Category with name ${newData.name.toUpperCase()} alredy exist.`,
+                message: `Item with name ${newData.name.toUpperCase()} alredy exist.`,
             },
             {
                 status: 400,
-                statusText: `Category with name ${newData.name.toUpperCase()} alredy exist.`,
+                statusText: `Item with name ${newData.name.toUpperCase()} alredy exist.`,
             }
         );
     }

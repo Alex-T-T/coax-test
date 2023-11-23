@@ -18,10 +18,18 @@ function Form({ setListItems }: IFormProps) {
             toast.error('Missing required fields');
             return;
         }
-        const newItem: IItem = await createItem(data);
-        toast.success('Item successfully created');
-        setListItems((prev) => [...prev, newItem]);
-        setData({ name: '', priority: 0 });
+        try {
+            const newItem: IItem = await createItem(data);
+            toast.success('Item successfully created');
+            setListItems((prev) => [...prev, newItem]);
+            setData({ name: '', priority: 0 });
+        } catch (error) {
+            if (error && typeof error === 'object' && 'cause' in error) {
+                toast.error((error as { cause: string }).cause);
+            } else {
+                console.error(error);
+            }
+        }
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +51,7 @@ function Form({ setListItems }: IFormProps) {
                 name="priority"
                 type="number"
                 placeholder="14"
-                className="w-[64px] py-[6px]  bg-input border border-transparent rounded-[3px] placeholder:text-[18px] placeholder:font-light placeholder:text-placeholder-text placeholder:text-center text-center outline-none"
+                className="appearance-none w-[64px] py-[6px]  bg-input border border-transparent rounded-[3px] placeholder:text-[18px] placeholder:font-light placeholder:text-placeholder-text placeholder:text-center text-center outline-none"
                 onChange={handleChange}
                 value={data.priority ? data.priority : ''}
             />
