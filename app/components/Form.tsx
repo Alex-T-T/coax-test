@@ -18,6 +18,10 @@ function Form({ setListItems }: IFormProps) {
             toast.error('Missing required fields');
             return;
         }
+        if (data.priority < 0 || data.priority === 0) {
+            toast.error('Prioryty can not be "0" or less then "0"');
+            return;
+        }
         try {
             const newItem: IItem = await createItem(data);
             toast.success('Item successfully created');
