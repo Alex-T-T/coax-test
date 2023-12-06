@@ -18,7 +18,8 @@ function Form({ setListItems }: IFormProps) {
             toast.error('Missing required fields');
             return;
         }
-        if (data.priority < 0 || data.priority === 0) {
+        console.log('data.priority => ', +data.priority === 0);
+        if (data.priority < 0 || +data.priority === 0) {
             toast.error('Prioryty can not be "0" or less then "0"');
             return;
         }
